@@ -1,7 +1,12 @@
-# google-drive-uploader
+# bitrise-step-google-drive-uploader
 
-Using the google drive api we can upload apks to a specified google drive folder
+Using the google drive api we can upload apks to a specified google drive folder using a service account and sharing the folder to that service account.
 
+```
+https://drive.google.com/drive/u/4/folders/{folderId}
+```
+
+Note once the folder is shared to that service account we can upload files to google drive using the folder id. Depending on demand its possible to extend this to upload to a specific folder under the parent folder.
 
 ## How to use this Step
 

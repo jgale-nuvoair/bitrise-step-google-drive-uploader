@@ -4,3 +4,5 @@
 README.md.backup
 _tmp/
 *.json
+*.env
+test
