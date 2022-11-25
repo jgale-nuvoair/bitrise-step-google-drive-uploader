@@ -9,6 +9,10 @@ import (
 
 func main() {
 	fmt.Println("This is the value specified for the input 'example_step_input':", os.Getenv("example_step_input"))
+	// print service_key_path
+	fmt.Println("This is the value specified for the input 'service_key_path':", os.Getenv("service_key_path"))
+	// and print folder_id
+	fmt.Println("This is the value specified for the input 'folder_id':", os.Getenv("folder_id"))
 
 	serviceAccount := os.Getenv("service_key_path")
 	folderId := os.Getenv("folder_id")
