@@ -19,6 +19,11 @@ func main() {
 
 	// find all files with the extension ending with *.apk
 	files, err := utils.FindFiles("**/*.apk")
+	// check if BITRISE_APK_PATH is set
+	if os.Getenv("BITRISE_APK_PATH") != "" {
+		// if it is set, add it to the files slice
+		files = append(files, os.Getenv("BITRISE_APK_PATH"))
+	}
 
 	if err != nil {
 		fmt.Println(err)
