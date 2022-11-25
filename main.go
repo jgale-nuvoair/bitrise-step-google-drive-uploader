@@ -19,6 +19,7 @@ func main() {
 		fmt.Printf("Failed to expose output with envman, error: %#v | output: %s", err, cmdLog)
 		os.Exit(1)
 	}
+	UploadFile("key.json", "LICENSE", "application/text")
 	// You can find more usage examples on envman's GitHub page
 	//  at: https://github.com/bitrise-io/envman
 
