@@ -80,6 +80,7 @@ inputs:
       value_options: []
   - service_key_path: $BITRISE_GOOGLE_SERVICE_JSON
     opts:
+      title: service key to google drive with share access to folder id
       summary: Path to service account in bitrise, recommended you use generic file storage, and download to a specific location, alternatively you can use the env var $BITRISE_GOOGLE_SERVICE_JSON that should know where the service account file is.
       description: |
         Path to service account in bitrise, recommended you use generic file storage
@@ -89,6 +90,7 @@ inputs:
 
   - folder_id: Folder ID to upload to
     opts:
+      title: google drive folder id (can view from the appended url)
       summary: Folder ID to upload to from google drive
       description: |
         Folder that is shared with google drive service account
