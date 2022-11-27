@@ -8,6 +8,10 @@ https://drive.google.com/drive/u/4/folders/{folderId}
 
 Note once the folder is shared to that service account we can upload files to google drive using the folder id. Depending on demand its possible to extend this to upload to a specific folder under the parent folder.
 
+Similar logic is implemented at
+
+https://www.youtube.com/watch?v=-YZRkIbNWY0&ab_channel=Code11Programming
+
 ## How to use this Step
 
 Can be run directly with the [bitrise CLI](https://github.com/bitrise-io/bitrise),
