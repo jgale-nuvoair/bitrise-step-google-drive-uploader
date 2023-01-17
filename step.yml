@@ -8,7 +8,7 @@
 # - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
 
 title: |-
-  google-drive-uploader
+ Google Drive Apk Uploader
 summary: |
   Uploads apks generated to google drive
 description: |
@@ -65,19 +65,8 @@ toolkit:
   go:
     package_name: github.com/FriendlyUser/bitrise-step-google-drive-uploader
 
-
+# TODO: add addition input glob apks files
 inputs:
-  - example_step_input: Default Value - you can leave this empty if you want to
-    opts:
-      title: "Example Step Input"
-      summary: Summary. No more than 2-3 sentences.
-      description: |
-        Description of this input.
-
-        Can be Markdown formatted text.
-      is_expand: true
-      is_required: true
-      value_options: []
   - service_key_path: $BITRISE_GOOGLE_SERVICE_JSON
     opts:
       title: service key to google drive with share access to folder id
@@ -85,7 +74,6 @@ inputs:
       description: |
         Path to service account in bitrise, recommended you use generic file storage
       is_required: true
-      value_options: []
       is_expand: true
 
   - folder_id: Folder ID to upload to
