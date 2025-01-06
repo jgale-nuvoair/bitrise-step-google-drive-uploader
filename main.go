@@ -47,6 +47,12 @@ func main() {
 		os.Exit(1)
 	}
 
+	file, err := os.Open(filePath)
+	if err != nil {
+		fmt.Println("Could not open file:", filePath)
+		log.Println(err)
+	}
+
 
 	utils.UploadFile(serviceAccount, os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"), folderId)
 
