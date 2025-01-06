@@ -13,7 +13,11 @@ func main() {
 	// and print folder_id
 	fmt.Println("This is the value specified for the input 'folder_id':", os.Getenv("folder_id"))
 	// And Xcode log path
-	fmt.Println("This is the value specified for the input 'folder_id':", os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
+	fmt.Println("This is the value of BITRISE_XCODEBUILD_TEST_LOG_PATH:", os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
+	fmt.Println("This is the value of BITRISE_XCODE_RAW_RESULT_TEXT_PATH:", os.Getenv("BITRISE_XCODE_RAW_RESULT_TEXT_PATH"))
+	fmt.Println("This is the value of BITRISE_TEST_DEPLOY_DIR:", os.Getenv("BITRISE_TEST_DEPLOY_DIR"))
+
+	
 
 	serviceAccount := os.Getenv("service_key_path")
 	folderId := os.Getenv("folder_id")
@@ -26,9 +30,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	if os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH") != "" {
+	if os.Getenv("BITRISE_XCODE_RAW_RESULT_TEXT_PATH") != "" {
 		// if it is set, add it to the files slice
-		files = append(files, os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
+		files = append(files, os.Getenv("BITRISE_XCODE_RAW_RESULT_TEXT_PATH"))
 	}
 
 
