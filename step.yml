@@ -8,14 +8,14 @@
 # - Bitrise CLI guides: http://devcenter.bitrise.io/bitrise-cli/
 
 title: |-
- Google Drive Apk Uploader
+ Google Drive File Uploader
 summary: |
-  Uploads apks generated to google drive
+  Uploads Files to Google Drive
 description: |
   Using the google drive api we can upload apks to a specified google drive folder
-website: https://github.com/FriendlyUser/bitrise-step-google-drive-uploader
-source_code_url: https://github.com/FriendlyUser/bitrise-step-google-drive-uploader
-support_url: https://github.com/FriendlyUser/bitrise-step-google-drive-uploader/issues
+website: https://github.com/jgale-nuvoair/bitrise-step-google-drive-uploader
+source_code_url: https://github.com/jgale-nuvoair/bitrise-step-google-drive-uploader
+support_url: https://github.com/jgale-nuvoair/bitrise-step-google-drive-uploader/issues
 
 # If this step should be available only for certain project types
 # just uncomment this `project_type_tags` section and include all the
