@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"github.com/jgale-nuvoair/bitrise-step-google-drive-uploader/pkg/utils"
+	"github.com/FriendlyUser/bitrise-step-google-drive-uploader/pkg/utils"
 )
 
 func main() {
