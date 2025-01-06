@@ -47,10 +47,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	file, err := os.Open(filePath)
+	_, err := os.Open(filePath)
 	if err != nil {
 		fmt.Println("Could not open file:", filePath)
-		log.Println(err)
+		fmt.Println(err)
 	}
 
 
