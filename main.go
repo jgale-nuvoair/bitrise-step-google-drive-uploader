@@ -12,6 +12,8 @@ func main() {
 	fmt.Println("This is the value specified for the input 'service_key_path':", os.Getenv("service_key_path"))
 	// and print folder_id
 	fmt.Println("This is the value specified for the input 'folder_id':", os.Getenv("folder_id"))
+	// And Xcode log path
+	fmt.Println("This is the value specified for the input 'folder_id':", os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
 
 	serviceAccount := os.Getenv("service_key_path")
 	folderId := os.Getenv("folder_id")
@@ -23,6 +25,12 @@ func main() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+
+	if os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH") != "" {
+		// if it is set, add it to the files slice
+		files = append(files, os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
+	}
+
 
 	// upload all apk files
 	for _, file := range files {
