@@ -34,18 +34,16 @@ func main() {
 	}
 
 	absFilePath, err := filepath.Abs(os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
-		if err != nil {
-    		fmt.Println("Error getting absolute path: %v", err)
-		}
-		fmt.Println("absFilePath:", absFilePath)
+	if err != nil {
+		fmt.Println("Error getting absolute path: %v", err)
 	}
+	fmt.Println("absFilePath:", absFilePath)
 
 
 	filePath := os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH")
-		if _, err := os.Stat(filePath); os.IsNotExist(err) {
-    		log.Fatalf("File does not exist: %s", filePath)
-			os.Exit(1)
-		}
+	if _, err := os.Stat(filePath); os.IsNotExist(err) {
+		log.Fatalf("File does not exist: %s", filePath)
+		os.Exit(1)
 	}
 
 
