@@ -47,7 +47,7 @@ func main() {
 	}
 
 
-	utils.UploadFile(serviceAccount, os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH", folderId)
+	utils.UploadFile(serviceAccount, os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"), folderId)
 
 	// upload all apk files
 	//for _, file := range files {
