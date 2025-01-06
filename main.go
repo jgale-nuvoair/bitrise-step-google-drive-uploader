@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-	"github.com/FriendlyUser/bitrise-step-google-drive-uploader/pkg/utils"
+	"path/filepath"
+	"github.com/jgale-nuvoair/bitrise-step-google-drive-uploader/pkg/utils"
 )
 
 func main() {
@@ -42,7 +43,7 @@ func main() {
 
 	filePath := os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH")
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
-		log.Fatalf("File does not exist: %s", filePath)
+		fmt.Println("File does not exist:", filePath)
 		os.Exit(1)
 	}
 
