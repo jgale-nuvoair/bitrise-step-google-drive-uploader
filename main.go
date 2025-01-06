@@ -17,7 +17,8 @@ func main() {
 	folderId := os.Getenv("folder_id")
 
 	// find all files with the extension ending with *.log
-	files, err := utils.FindFiles("**/*.log")
+	//files, err := utils.FindFiles("**/*.log")
+	files, err := utils.FindFiles("*.log")
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
