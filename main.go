@@ -40,16 +40,16 @@ func main() {
 	// 	os.Exit(1)
 	// }
 
-	if os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH") != "" {
-		// if it is set, add it to the files slice
-		files = append(files, os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
-	}
+	// if os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH") != "" {
+	// 	// if it is set, add it to the files slice
+	// 	files = append(files, os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
+	// }
 
-	absFilePath, err := filepath.Abs(os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
-	if err != nil {
-		fmt.Println("Error getting absolute path: %v", err)
-	}
-	fmt.Println("absFilePath:", absFilePath)
+	// absFilePath, err := filepath.Abs(os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
+	// if err != nil {
+	// 	fmt.Println("Error getting absolute path: %v", err)
+	// }
+	// fmt.Println("absFilePath:", absFilePath)
 
 
 	filePath := os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH")
