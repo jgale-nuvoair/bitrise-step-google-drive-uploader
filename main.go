@@ -21,10 +21,13 @@ import (
 func main() {
 	fmt.Println("This is the value specified for the input 'service_key_path':", os.Getenv("service_key_path"))
 	fmt.Println("This is the value specified for the input 'folder_id':", os.Getenv("folder_id"))
+	fmt.Println("This is the value specified for the input 'output_filename':", os.Getenv("output_filename"))
 	fmt.Println("This is the value of BITRISE_XCODEBUILD_TEST_LOG_PATH:", os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
 
 	serviceAccount := os.Getenv("service_key_path")
 	folderId := os.Getenv("folder_id")
+	outputFilename = := os.Getenv("output_filename")
+	
 
 	// You can use this to find all files of a particular extension and upload them
 	// files, err := utils.FindFiles("*.log")
@@ -43,7 +46,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	UploadFile(serviceAccount, filePath, folderId)
+	UploadFile(serviceAccount, filePath, outputFilename, folderId)
 
 	// --- Exit codes:
 	// The exit code of your Step is very important. If you return
@@ -75,7 +78,7 @@ func serviceAccount(credentialFile string) *http.Client {
 	return client
 }
 
-func UploadFile(serviceFile string, fileName string, folderId string) {
+func UploadFile(serviceFile string, fileName string, outputFilename string, folderId string) {
 	filename := fileName                       // Filename
 	baseMimeType := "application/octet-stream" // MimeType
 	client := serviceAccount(serviceFile)      // Please set the json file of Service account.
@@ -93,9 +96,8 @@ func UploadFile(serviceFile string, fileName string, folderId string) {
 		log.Fatalln(err)
 	}
 	defer file.Close()
-	// get base name from filename
-	baseName := filepath.Base(filename)
-	f := &drive.File{Name: baseName}
+	// get base name from filename: baseName := filepath.Base(filename)
+	f := &drive.File{Name: outputFilename}
 	if folderId != "" {
 		f.Parents = []string{folderId}
 	}
@@ -107,5 +109,5 @@ func UploadFile(serviceFile string, fileName string, folderId string) {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	fmt.Printf("Uploaded file %s with id %s\n", filename, res.Id)
+	fmt.Printf("Uploaded file %s to with id %s\n", outputFilename, res.Id)
 }

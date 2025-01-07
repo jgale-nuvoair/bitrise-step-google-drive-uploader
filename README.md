@@ -31,6 +31,7 @@ Modify the bitrise.yml to add the following steps:
         inputs:
         - folder_id: "$GOOGLE_DRIVE_FOLDER_ID"
         - service_key_path: credentials.json
+        - output_filename: xcodebuild_test.log
 ```
 
 This sets up the Bitrise [File Downloader](https://bitrise.io/integrations/steps/file-downloader) step to download the JSON file during your Bitrise workflow, using the Download URL from previous step.

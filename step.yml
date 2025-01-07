@@ -83,3 +83,11 @@ inputs:
       description: |
         Folder that is shared with google drive service account
       is_required: true
+
+  - output_filename: Output filename to save on Google Drive
+    opts:
+      title: Build log filename to save on Google Drive
+      summary: The name of the Xcode log file that will be saved on Google Drive
+      description: |
+        The name of the Xcode log file that will be saved on Google Drive
+      is_required: true
