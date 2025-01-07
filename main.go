@@ -34,11 +34,11 @@ func main() {
 
 	// find all files with the extension ending with *.log
 	//files, err := utils.FindFiles("**/*.log")
-	files, err := utils.FindFiles("*.log")
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+	// files, err := utils.FindFiles("*.log")
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	os.Exit(1)
+	// }
 
 	if os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH") != "" {
 		// if it is set, add it to the files slice
