@@ -19,38 +19,23 @@ import (
 
 
 func main() {
-	// print service_key_path
 	fmt.Println("This is the value specified for the input 'service_key_path':", os.Getenv("service_key_path"))
-	// and print folder_id
 	fmt.Println("This is the value specified for the input 'folder_id':", os.Getenv("folder_id"))
-	// And Xcode log path
 	fmt.Println("This is the value of BITRISE_XCODEBUILD_TEST_LOG_PATH:", os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
-	fmt.Println("This is the value of BITRISE_TEST_DEPLOY_DIR:", os.Getenv("BITRISE_TEST_DEPLOY_DIR"))
-
-	
 
 	serviceAccount := os.Getenv("service_key_path")
 	folderId := os.Getenv("folder_id")
 
-	// find all files with the extension ending with *.log
-	//files, err := utils.FindFiles("**/*.log")
+	// You can use this to find all files of a particular extension and upload them
 	// files, err := utils.FindFiles("*.log")
 	// if err != nil {
 	// 	fmt.Println(err)
 	// 	os.Exit(1)
 	// }
-
-	// if os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH") != "" {
-	// 	// if it is set, add it to the files slice
-	// 	files = append(files, os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
+	// for _, file := range files {
+	// 	fmt.Println("Trying to upload file: ", file)
+	// 	UploadFile(serviceAccount, file, folderId)
 	// }
-
-	// absFilePath, err := filepath.Abs(os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH"))
-	// if err != nil {
-	// 	fmt.Println("Error getting absolute path: %v", err)
-	// }
-	// fmt.Println("absFilePath:", absFilePath)
-
 
 	filePath := os.Getenv("BITRISE_XCODEBUILD_TEST_LOG_PATH")
 	if _, err := os.Stat(filePath); os.IsNotExist(err) {
@@ -58,21 +43,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	file, err := os.Open(filePath)
-	if err != nil {
-		fmt.Println("Could not open file:", filePath)
-		fmt.Println(err)
-	}
-	fmt.Println(file)
-
-
 	UploadFile(serviceAccount, filePath, folderId)
-
-	// upload all apk files
-	//for _, file := range files {
-		//fmt.Println("Trying to upload file: ", file)
-		//utils.UploadFile(serviceAccount, file, folderId)
-	//}
 
 	// --- Exit codes:
 	// The exit code of your Step is very important. If you return
@@ -84,7 +55,7 @@ func main() {
 func serviceAccount(credentialFile string) *http.Client {
 	b, err := ioutil.ReadFile(credentialFile)
 	if err != nil {
-		fmt.Println("serviceAccount is the one that's failing:", credentialFile)
+		fmt.Println("credential file for the service account couldn't be read:", credentialFile)
 		log.Fatal(err)
 	}
 	var c = struct {
