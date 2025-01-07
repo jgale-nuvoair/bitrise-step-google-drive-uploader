@@ -84,7 +84,7 @@ inputs:
         Folder that is shared with google drive service account
       is_required: true
 
-  - output_filename: Output filename to save on Google Drive
+  - output_filename: xcodebuild_test.log
     opts:
       title: Build log filename to save on Google Drive
       summary: The name of the Xcode log file that will be saved on Google Drive

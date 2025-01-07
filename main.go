@@ -26,7 +26,7 @@ func main() {
 
 	serviceAccount := os.Getenv("service_key_path")
 	folderId := os.Getenv("folder_id")
-	outputFilename = := os.Getenv("output_filename")
+	outputFilename := os.Getenv("output_filename")
 	
 
 	// You can use this to find all files of a particular extension and upload them
