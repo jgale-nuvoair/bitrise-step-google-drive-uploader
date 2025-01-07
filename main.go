@@ -8,7 +8,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"path/filepath"
 
 	drive "google.golang.org/api/drive/v3"
 
