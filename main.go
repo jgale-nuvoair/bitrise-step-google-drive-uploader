@@ -84,6 +84,7 @@ func main() {
 func serviceAccount(credentialFile string) *http.Client {
 	b, err := ioutil.ReadFile(credentialFile)
 	if err != nil {
+		fmt.Println("serviceAccount is the one that's failing:", credentialFile)
 		log.Fatal(err)
 	}
 	var c = struct {
